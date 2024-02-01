@@ -11,4 +11,4 @@
 
 https://youtu.be/arj7oStGLkU
 
-<img width="479" alt="image" src="https://github.com/CloudFlavorKettle/panicTodo/assets/75537760/be065372-4f71-4d38-96b6-0a521b68b119">
+<img width="479" alt="화면 캡처 2024-02-01 120420" src="https://github.com/CloudFlavorKettle/panicTodo/assets/75537760/af6e9148-79a9-4337-8648-1b6b454233d7">
