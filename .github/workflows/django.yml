@@ -17,6 +17,9 @@ jobs:
 
     steps:
     - uses: actions/checkout@v3
+    - name: create secrets file
+      run: |
+        echo "${{ secrets.DJANGO_SECRET_KEY }}" >> .env
     - name: Set up Python ${{ matrix.python-version }}
       uses: actions/setup-python@v3
       with:
