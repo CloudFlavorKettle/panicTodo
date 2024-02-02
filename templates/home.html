@@ -1,0 +1,14 @@
+<!-- templates/home.html -->
+{% extends 'base.html' %}
+ {% block title %}Home{% endblock %}
+ {% block content %}
+     {% if user.is_authenticated %} <div class="badge bg-primary text-wrap fs-6" style="width: 6rem;">Hi {{ user.username }}!</div>
+     <a href="{% url 'accountapp:logout' %}">logout</a>
+     <div class="container text-center">
+        <h1>wellcome Panic Todo!</h1>
+        {% else %}
+          <p>You are not logged in</p>
+          <a href="{% url 'accountapp:login' %}">Log In</a>
+        {% endif %}
+     </div>
+{% endblock %}
