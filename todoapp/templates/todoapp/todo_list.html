@@ -1,0 +1,39 @@
+{% extends 'base.html' %}
+ {% block title %}Todo{% endblock %}
+ {% block content %}
+     <div class="container">
+        {% if object_list %}
+            {% for todo in todo_list %}
+                <div>
+                    <h3>{{ todo.title }}</h3>
+                    <text>{{ todo.description }}</text>
+                    <label>
+                        <input id="my_checkbox" type="checkbox" class="form-check-input" name="{{ todo.done }}" {% if todo.done %} checked {% endif %} >
+                    </label>
+                </div>
+            {% endfor %}
+        {% else %}
+            <h1>Not todo yet!</h1>
+        {% endif %}
+     </div>
+     <pre id='result'></pre>
+ {% endblock %}
+{% block js %}
+    $(document).ready(function(){
+    $("#my_checkbox").click(function(){
+        var todoId = 1;  // 예를 들어 특정 todo의 ID를 가져옴
+        $.ajax({
+            url: "/todos/todo-checking/" + todoId + "/",  // todo_checking 뷰 함수에 대한 URL
+            type: "GET",
+            success: function(response){
+                console.log("Todo status toggled successfully!");
+                // 성공적으로 처리되었을 때 추가적인 동작을 수행할 수 있음
+            },
+            error: function(xhr, status, error) {
+                console.error("An error occurred while toggling todo status.");
+            }
+        });
+    });
+});
+
+{% endblock %}
