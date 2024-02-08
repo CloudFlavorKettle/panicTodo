@@ -8,7 +8,7 @@
                     <h3>{{ todo.title }}</h3>
                     <text>{{ todo.description }}</text>
                     <label>
-                        <input id="my_checkbox" type="checkbox" class="form-check-input" name="{{ todo.done }}" {% if todo.done %} checked {% endif %} >
+                        <input data-id="{{ todo.id }}" type="checkbox" class="form-check-input" name="{{ todo.done }}" {% if todo.done %} checked {% endif %} >
                     </label>
                 </div>
             {% endfor %}
@@ -20,8 +20,8 @@
  {% endblock %}
 {% block js %}
     $(document).ready(function(){
-    $("#my_checkbox").click(function(){
-        var todoId = 1;  // 예를 들어 특정 todo의 ID를 가져옴
+    $(".form-check-input").click(function(){
+        var todoId = this.getAttribute("data-id");
         $.ajax({
             url: "/todos/todo-checking/" + todoId + "/",  // todo_checking 뷰 함수에 대한 URL
             type: "GET",
