@@ -48,8 +48,18 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+]
+
+# Created Apps
+
+INSTALLED_APPS += [
     "accountapp.apps.AccountappConfig",
     "todoapp.apps.TodoappConfig",
+]
+
+# Install Apps
+
+INSTALLED_APPS += [
     'bootstrap5',
 ]
 
