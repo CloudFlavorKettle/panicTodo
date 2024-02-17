@@ -3,15 +3,69 @@
  {% block content %}
      <div class="container">
         {% if object_list %}
-            {% for todo in todo_list %}
-                <div>
-                    <h3>{{ todo.title }}</h3>
-                    <text>{{ todo.description }}</text>
-                    <label>
-                        <input data-id="{{ todo.id }}" type="checkbox" class="form-check-input" name="{{ todo.done }}" {% if todo.done %} checked {% endif %} >
-                    </label>
+            <section class="vh-100" style="background-color: #eee; border-radius: .5rem .5rem 0 0;">
+  <div class="row d-flex justify-content-center py-5">
+    <div class="row d-flex justify-content-center align-items-center h-100">
+      <div class="col col-lg-9 col-xl-9">
+        <div class="card rounded-3">
+          <div class="card-body p-4">
+
+            <h4 class="text-center my-3 pb-3">To Do App</h4>
+
+            <form class="row row-cols-lg-auto g-3 justify-content-center align-items-center mb-4 pb-2">
+              <div class="col-12">
+                <div class="form-outline">
+                  <input type="text" id="form1" class="form-control" />
+                  <label class="form-label" for="form1">Enter a task here</label>
                 </div>
-            {% endfor %}
+              </div>
+
+
+
+              <div class="col-12">
+                <button type="submit" class="btn btn-primary">Save</button>
+              </div>
+
+              <div class="col-12">
+                <button type="submit" class="btn btn-warning">Get tasks</button>
+              </div>
+            </form>
+
+            <table class="table mb-4">
+              <thead>
+                <tr>
+                  <th scope="col">No.</th>
+                  <th scope="col">Todo item</th>
+                  <th scope="col">Status</th>
+                  <th scope="col">description</th>
+                  <th scope="col">Actions</th>
+                </tr>
+              </thead>
+              <tbody>
+              {% for todo in todo_list %}
+                <tr>
+                  <th scope="row">{{ todo.id }}</th>
+                  <td>{{ todo.title }}</td>
+                  <td>{{ todo.done }}</td>
+                  <td>{{ todo.description }}</td>
+                  <td>
+                    <button type="submit" class="btn btn-danger">Delete</button>
+                    <label>
+                        <input data-id="{{ todo.id }}" type="checkbox" class="form-check-input" {% if todo.done %} checked {% endif %} >
+                    </label>
+                  </td>
+                </tr>
+              {% endfor %}
+              </tbody>
+            </table>
+
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
         {% else %}
             <h1>Not todo yet!</h1>
         {% endif %}
