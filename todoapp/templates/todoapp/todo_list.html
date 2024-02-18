@@ -38,6 +38,8 @@
                   <th scope="col">Todo item</th>
                   <th scope="col">Status</th>
                   <th scope="col">description</th>
+                  <th scope="col">panic_description</th>
+                  <th scope="col">panic_time</th>
                   <th scope="col">Actions</th>
                 </tr>
               </thead>
@@ -48,6 +50,8 @@
                   <td>{{ todo.title }}</td>
                   <td>{{ todo.done }}</td>
                   <td>{{ todo.description }}</td>
+                  <td>{{ todo.panic_description }}</td>
+                  <td>{{ todo.panic_time }}</td>
                   <td>
                     <button type="submit" class="btn btn-danger">Delete</button>
                     <label>
